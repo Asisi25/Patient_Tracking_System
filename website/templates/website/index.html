@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
     <!-- Mirrored from newPelumi-Patienti-Tracking-Systemhtml.bdtask.com/ by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 23 Jul 2023 15:05:56 GMT -->
@@ -6,15 +7,15 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- Favicon -->
-        <link rel="shortcut icon" href="images/fev-icon.png"/>
+        <link rel="shortcut icon" href="{% static 'website/images/fev-icon.png'}"/>
         <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
         <title>Pelumi-Patienti-Tracking-System</title>
         <!-- Google font -->
         <link href="https://fonts.googleapis.com/css?family=Work+Sans:100,200,300,400,500,600,700,800,900" rel="stylesheet">
         <!-- Bootstrap -->
-        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="{% static 'website/css/bootstrap.min.css' %}" rel="stylesheet">
         <!-- Jquery Ui -->
-        <link href="css/jquery-ui.min.css" rel="stylesheet" type="text/css"/>
+        <link href="{% static 'website/css/jquery-ui.min.css'%}" rel="stylesheet" type="text/css"/>
         <!-- Font Awesome -->
         <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
         <!-- Flaticon -->
@@ -30,7 +31,7 @@
         <!-- Revolution Navigation Styles -->
         <link href="revolution/css/navigation.css" rel="stylesheet" type="text/css"/>
         <!-- Custom Style Sheet -->
-        <link href="css/style.css" rel="stylesheet" type="text/css"/>
+        <link href="{% static 'website/css/style.css' %}" rel="stylesheet" type="text/css"/>
     </head>
     <body id="page-top">
         <!-- Loader icon -->
