@@ -16,7 +16,9 @@ class Patient(models.Model):
 
     def __str__(self):
         return f"{self.first_name} {self.last_name}"
-    
+    def get_absolute_url(self):
+            return reverse('patient_tracking:patients-detail', args=[self.pk])
+
 class Appointment(models.Model):
     patient = models.ForeignKey(Patient, on_delete=models.CASCADE)
     appointment_date = models.DateTimeField()
