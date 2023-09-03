@@ -1,0 +1,135 @@
+{% extends 'website/base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block title %}
+    Patient Tracking | {{ patient.first_name}}
+{% endblock %}
+
+{% block content %}
+
+<section style="padding: 70px;" class="shadow">
+    <div class="container">
+        <div class="row my-row">
+            <div class="col-sm-6 col-md-3 hidden-xs hidden-sm">
+                <img src="{% static 'website/images/appointment.png' %}" class="img-responsive" alt="">
+            </div>
+            <div class="col-sm-12 col-md-9">
+                <div class="about-des">
+                    <h3 class="bordered bordered-2 border-bottom bordered-primary">Patient Form</h3>
+                    <h5>Register a patient to meet the doctor and keep track of medical records <a href="{% url 'patient_tracking:patients-list' %}" type="button" class="thm-btn">Patients List</a></h5>
+                    
+                    {% if form.errors %}
+                        <div class="alert alert-danger alert-dismissible" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                            <strong>Whoops!</strong> Something went wrong
+                            <div class="">
+                                {{form.non_field_errors}}
+                            </div>    
+                      </div>
+                    {% endif %}
+                     <form method="post">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group {% if form.first_name.errors %} has-error {% endif %}">
+                                    <label class="control-label" for="{{ form.first_name.id_for_label }}">{{ form.first_name.label_tag }}</label>
+                                    {{ form.first_name|append_attr:"class:form-control" }}
+                                    <span class="help-block">
+                                        {% for error in form.first_name.errors %}
+                                            {{ error }}
+                                        {% endfor %}
+                                    </span>
+                                  </div>
+                            </div>                 
+                            <div class="col-md-4">
+                                <div class="form-group {% if form.last_name.errors%} has-error {% endif %}">
+                                    <label class="control-label" for="{{ form.last_name.id_for_label }}">{{ form.last_name.label_tag }}</label>
+                                    {{ form.last_name|append_attr:"class:form-control" }}
+                                    <span class="help-block">
+                                        {% for error in form.last_name.errors %}
+                                            {{ error }}
+                                        {% endfor %}
+                                    </span>
+                                  </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="form-group {% if form.date_of_birth.errors %} has-error {% endif %}">
+                                    <label class="control-label" for="{{ form.date_of_birth.id_for_label }}">{{ form.date_of_birth.label_tag }}</label>
+                                    {{ form.date_of_birth|append_attr:"class:form-control"|attr:"type:date" }}
+                                    <span class="help-block">
+                                        {% for error in form.date_of_birth.errors %}
+                                            {{ error }}
+                                        {% endfor %}
+                                    </span>
+                                  </div>
+                            </div>                 
+                            <div class="col-md-4">
+                                <div class="form-group {% if form.gender.errors%} has-error {% endif %}">
+                                    <label class="control-label" for="{{ form.gender.id_for_label }}">{{ form.gender.label_tag }}</label>
+                                    {{ form.gender|append_attr:"class:form-control" }}
+                                    <span class="help-block">
+                                        {% for error in form.gender.errors %}
+                                            {{ error }}
+                                        {% endfor %}
+                                    </span>
+                                  </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="form-group {% if form.email.errors %} has-error {% endif %}">
+                                    <label class="control-label" for="{{ form.email.id_for_label }}">{{ form.email.label_tag }}</label>
+                                    {{ form.email|append_attr:"class:form-control"}}
+                                    <span class="help-block">
+                                        {% for error in form.email.errors %}
+                                            {{ error }}
+                                        {% endfor %}
+                                    </span>
+                                  </div>
+                            </div>                 
+                            <div class="col-md-4">
+                                <div class="form-group {% if form.phone_number.errors%} has-error {% endif %}">
+                                    <label class="control-label" for="{{ form.phone_number.id_for_label }}">{{ form.phone_number.label_tag }}</label>
+                                    {{ form.phone_number|append_attr:"class:form-control" }}
+                                    <span class="help-block">
+                                        {% for error in form.phone_number.errors %}
+                                            {{ error }}
+                                        {% endfor %}
+                                    </span>
+                                  </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group {% if form.address.errors%} has-error {% endif %}">
+                                    <label class="control-label" for="{{ form.address.id_for_label }}">{{ form.address.label_tag }}</label>
+                                    {{ form.address|append_attr:"class:form-control" |attr:"rows:3" }}
+                                    <span class="help-block">
+                                        {% for error in form.address.errors %}
+                                            {{ error }}
+                                        {% endfor %}
+                                    </span>
+                                  </div>
+                            </div>
+                          
+                            <div class="col-lg-12">
+                                <div class="btn-toolbar" role="toolbar" aria-label="...">
+                                    <div class="btn-group" role="group" aria-label="...">
+                                        <button type="reset" class="default-btn btn btn-warning send_btn">Clear<span></span></button>
+                                    </div>
+                                    <div class="btn-group" role="group" aria-label="...">
+                                        <button type="submit" class="default-btn btn btn-primary send_btn">Save<span></span></button>
+                                    </div>
+                                  </div>
+                                <div class="form-group">
+                                </div>
+                            </div>                     
+                        </div>
+                     </form>               
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

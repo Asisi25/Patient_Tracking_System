@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'website.apps.WebsiteConfig',
-    'patient_tracking',
+    'patient_tracking.apps.PatientTrackingConfig',
+    'widget_tweaks'
 ]
 
 MIDDLEWARE = [

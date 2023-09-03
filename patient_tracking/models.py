@@ -2,7 +2,7 @@ from django.db import models
 from django.utils import timezone
 # from django.contrib.auth.models import AbstractUser
 from django.shortcuts import render
-from .models import Patient  # Import your models
+from django.urls import reverse
 # Create your models here.
 
 class Patient(models.Model):
@@ -16,7 +16,8 @@ class Patient(models.Model):
 
     def __str__(self):
         return f"{self.first_name} {self.last_name}"
-
+    def get_absolute_url(self):
+            return reverse('patient_tracking:patients-detail', args=[self.pk])
 
 class Appointment(models.Model):
     patient = models.ForeignKey(Patient, on_delete=models.CASCADE)

@@ -1,0 +1,51 @@
+{% extends 'website/base.html' %}
+{% load static %}
+{% block title %}
+    Patient Tracking | {{ patient.first_name}}
+{% endblock %}
+
+{% block content %}
+
+<section style="padding: 70px;" class="shadow">
+    <div class="container">
+        <div class="row my-row">
+            <div class="col-sm-6 col-md-3 hidden-xs hidden-sm">
+                <ul class="nav nav-pills nav-stacked">
+                    <li role="presentation" class="active"><a href="#"><i class="fa fa-lg fa-user"></i> Profile</a></li>
+                    <li role="presentation"><a href="#"> <i class="fa fa-list"></i> Appointments</a></li>
+                    <li role="presentation"><a href="#"> <i class="fa fa-bookmark"></i> Prescriptions</a></li>
+                    <li role="presentation"><a href="#"> <i class="fa fa-hospital-o"></i> Medical History</a></li>
+                    <li role="presentation"><a href="#"><i class="fa fa-credit-card"></i> Billing</a></li>
+                </ul>
+            </div>
+            <div class="col-sm-12 col-md-9">
+                <div class="about-des">
+                    <h3 class="bordered bordered-2 border-bottom bordered-primary">{{ patient.last_name}} {{ patient.first_name}}</h3>
+                    <div class="row">
+                        <div class="col-sm-12 col-md-3 m-0 p-0">
+                            <img src="{% static 'website/images/about.jpg' %}"  height="120" alt="">
+                        </div>
+                        <div class="col-sm-12 col-md-9">
+                            <p class=""> 
+                                <span class="text-muted">Date of Birth:</span> <strong>{{ patient.date_of_birth}}</strong> 
+                                <br/>
+                                <span class="text-muted">Gender: </span> <strong>{{ patient.gender}}</strong>
+                                <br/>
+                                <span class="text-muted">Email:</span> <strong>{{ patient.email}}</strong> 
+                                <br/>
+                                <span class="text-muted">Phone Number: </span> <strong>{{ patient.phone_number}}</strong>
+                                <br/>
+                                <span class="text-muted">Address: </span> <strong>{{ patient.address}}</strong>
+        
+                            </p>  
+                        </div>
+                    </div>
+                   
+                            
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
