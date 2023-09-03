@@ -1,0 +1,57 @@
+{% extends 'website/base.html' %}
+{% load static %}
+{% block title %}
+    Patient Tracking | Patients
+{% endblock %}
+
+{% block content %}
+
+<section style="padding: 70px;" class="shadow">
+    <div class="container">
+        <div class="row my-row">
+            <div class="col-12">
+                <div class="about-des">
+                    <h3 class="bordered bordered-2 border-bottom bordered-primary">Medical Histories List</h3>
+                    <h5>Add a patient new medical record <a href="{% url 'patient_tracking:medical-histories-create' %}" class="thm-btn">Add New Patient Medical Record</a></h5>
+                    <div class="table-responsive">
+                        <table class="table table-hover table-striped">
+                            <caption></caption>
+                            <thead>
+                                <tr>
+                                    <th scope="col" class="text-nowrap">Patient</th>
+                                    <th scope="col" class="text-nowrap">Condition</thtion>
+                                    <th scope="col" class="text-nowrap">Diagnosis Date</th>
+                                    <th scope="col" class="text-nowrap">Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                
+                                {% for medical_history in object_list %}
+                                    <tr>
+                                        <td class="text-nowrap">{{medical_history.patient}}</td>
+                                        <td class="text-nowrap">{{medical_history.condition}}</td>
+                                        <td class="text-nowrap">{{medical_history.diagnosis_date}}</td>
+                                        <td class="text-nowrap">{{medical_history.description}}</td>
+
+                                        <td class="text-nowrap">
+                                            <a href="#" class="btn btn-default">
+                                                <i class="fa fa-pencil"></i> Edit
+                                              </a>
+                                            <a href="#" class="btn btn-primary">
+                                              <i class="fa fa-eye"></i> View
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    {% empty %}
+                                    <h3>0 records</h3>
+                                {%endfor%}
+                            </tbody>
+                        </table>
+                    </div>                   
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

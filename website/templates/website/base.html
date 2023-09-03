@@ -95,8 +95,8 @@
                                 <span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                                <li><a href="#"> Medical Histories List</a></li>
-                                <li><a href="#">Add New Medical Histories</a></li>
+                                <li class="{% if request.path == '/patient-tracking/medical-histories/' %} active {% endif %}"><a href="{% url 'patient_tracking:medical-histories-list' %}"> Medical Histories List</a></li>
+                                <li class="{% if request.path == '/patient-tracking/medical-histories/create' %} active {% endif %}""><a href="#">Add New Medical Histories</a></li>
                             </ul>
                         </li>                           
                     </ul>
