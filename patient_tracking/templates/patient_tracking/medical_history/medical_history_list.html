@@ -18,6 +18,7 @@
                             <caption></caption>
                             <thead>
                                 <tr>
+                                    <th scope="col" class="text-nowrap">SN.</th>
                                     <th scope="col" class="text-nowrap">Patient</th>
                                     <th scope="col" class="text-nowrap">Condition</thtion>
                                     <th scope="col" class="text-nowrap">Diagnosis Date</th>
@@ -28,6 +29,7 @@
                                 
                                 {% for medical_history in object_list %}
                                     <tr>
+                                        <td>{{ forloop.counter }}.</td>
                                         <td class="text-nowrap">{{medical_history.patient}}</td>
                                         <td class="text-nowrap">{{medical_history.condition}}</td>
                                         <td class="text-nowrap">{{medical_history.diagnosis_date}}</td>

@@ -89,7 +89,7 @@
                                 <li class="{% if request.path == '/patient-tracking/patients/create/' %}  active {% endif %}"><a href="{% url 'patient_tracking:patients-create' %}">Register New Paient</a></li>
                             </ul>
                         </li> 
-                        <li>
+                        <li class="{% if '/patient-tracking/medical-histories/' in request.path %} active {% endif %}">
                             <a href="#" class="page-scroll" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                                 Medical Histories
                                 <span class="caret"></span>
