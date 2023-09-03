@@ -44,7 +44,7 @@
                                             <a href="{% url 'patient_tracking:patients-edit' patient.id %}" class="btn btn-default">
                                                 <i class="fa fa-pencil"></i> Edit
                                               </a>
-                                            <a href="{{patient.get_absolute_url}}" class="btn btn-primary">
+                                            <a href="{% url 'patient_tracking:patients-detail' patient.id %}" class="btn btn-primary">
                                               <i class="fa fa-eye"></i> View
                                             </a>
                                         </td>

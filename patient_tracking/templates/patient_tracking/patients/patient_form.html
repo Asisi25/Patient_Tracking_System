@@ -16,8 +16,14 @@
             </div>
             <div class="col-sm-12 col-md-9">
                 <div class="about-des">
-                    <h3 class="bordered bordered-2 border-bottom bordered-primary">Patient Form</h3>
-                    <h5>Register a patient to meet the doctor and keep track of medical records <a href="{% url 'patient_tracking:patients-list' %}" type="button" class="thm-btn">Patients List</a></h5>
+                    <h3 class="bordered bordered-2 border-bottom bordered-primary">Patient {% if request.path == '/patient-tracking/patients/create/' %}  Registration {% else %} Edit {% endif %} Form</h3>
+                    <h5>
+                        {% if request.path == '/patient-tracking/patients/create/' %} 
+                            Register a patient to meet the doctor and keep track of medical records
+                        {% else %} 
+                            Edit Patient Record or goto
+                        {% endif %}
+                    <a href="{% url 'patient_tracking:patients-list' %}" type="button" class="thm-btn">Patients List</a></h5>
                     
                     {% if form.errors %}
                         <div class="alert alert-danger alert-dismissible" role="alert">
