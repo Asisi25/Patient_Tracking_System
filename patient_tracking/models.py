@@ -35,6 +35,8 @@ class MedicalHistory(models.Model):
 
     def __str__(self):
         return f"Medical history of {self.patient} - {self.condition}"
+    def get_absolute_url(self):
+            return reverse('patient_tracking:medical-histories-detail', args=[self.pk])
 
 class Prescription(models.Model):
     patient = models.ForeignKey(Patient, on_delete=models.CASCADE)

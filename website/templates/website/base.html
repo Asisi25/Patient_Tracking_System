@@ -33,6 +33,7 @@
         <link href="{% static 'website/revolution/css/navigation.css' %}" rel="stylesheet" type="text/css"/>
         <!-- Custom Style Sheet -->
         <link href="{% static 'website/css/style.css' %}" rel="stylesheet" type="text/css"/>
+        {%block css%}{% endblock %}
     </head>
     <body id="page-top">
         <!-- Loader icon -->
@@ -79,6 +80,7 @@
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
                         <li><a href="{% url 'website:home' %}">Home <span class="sr-only">(current)</span></a></li>
+                        <li  class="{% if request.path == '/patient-tracking/dashboard/' or  request.path == '/patient-tracking/' %}  active {% endif %}"><a href="{% url 'patient_tracking:index' %}" class="page-scroll">PTS Dashboard</a></li>
                         <li class="{% if '/patient-tracking/patients/' in request.path %} active {% endif %}">
                             <a href="#" class="page-scroll" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                                 Patients
@@ -96,7 +98,7 @@
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
                                 <li class="{% if request.path == '/patient-tracking/medical-histories/' %} active {% endif %}"><a href="{% url 'patient_tracking:medical-histories-list' %}"> Medical Histories List</a></li>
-                                <li class="{% if request.path == '/patient-tracking/medical-histories/create' %} active {% endif %}""><a href="#">Add New Medical Histories</a></li>
+                                <li class="{% if request.path == '/patient-tracking/medical-histories/create' %} active {% endif %}""><a href="{% url 'patient_tracking:medical-histories-create' %}">Add New Medical Histories</a></li>
                             </ul>
                         </li>                           
                     </ul>

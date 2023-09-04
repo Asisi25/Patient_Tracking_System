@@ -1,0 +1,39 @@
+{% extends 'website/base.html' %}
+{% load static %}
+{% block title %}
+    Patient Tracking | {{ medical.patient}}
+{% endblock %}
+
+{% block content %}
+
+<section style="padding: 70px;" class="shadow">
+    <div class="container">
+        <div class="row my-row">
+           
+            <div class="col-sm-12 col-md-12">
+                <div class="about-des">
+                    <h3 class="bordered bordered-2 border-bottom bordered-primary"> Medical History {{ medicalhistory.id}}</h3>
+                    <div class="row">
+                       
+                        <div class="col-sm-12 col-md-12">
+                            <p class=""> 
+                                <span class="text-muted">Patient Fullname:</span> <strong>{{ medicalhistory.patient}}</strong> 
+                                <br/>
+                                <span class="text-muted">Condition: </span> <strong>{{medicalhistory.condition}}</strong>
+                                <br/>
+                                <span class="text-muted">Diagnosis Date:</span> <strong>{{medicalhistory.diagnosis_date}}</strong> 
+                                <br/>
+                                <span class="text-muted">Description: </span> <strong>{{medicalhistory.description}}</strong>
+                                <br/>        
+                            </p>  
+                        </div>
+                    </div>
+                   
+                            
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
